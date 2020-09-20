@@ -10,7 +10,7 @@ import { GEO_URL, MAP_FILL, MAP_STROKE } from "../constants";
 import Markers from "../components/Markers";
 
 const Map = ({ markers, categories }) => (
-  <ComposableMap>
+  <ComposableMap className="map">
     <ZoomableGroup zoom={1}>
       <Geographies geography={GEO_URL}>
         {({ geographies }) =>
