@@ -34,14 +34,12 @@ Your .csv file structure should look like this:
 (but without headers) E.g.:
 
 ```csv
-
 Shop,Glencoe,Kentucky,41046,1650 Tapering Pointe Rd
 Shop,Racine,Ohio(OH),45771,49275 Bald Knob Rd
 House,Grove City,Pennsylvania(PA),16127,525 N Liberty Rd
 House,Calumet City,Illinois(IL),60409,311 Marquette Ave
 Factory,Bremen,Alabama(AL),35033,117 County Rd #9
 Some other category,Monroe,North Carolina(NC),28110,1616 Battle Ln
-
 ```
 
 Order may vary
@@ -65,4 +63,17 @@ npm install
 # Run app
 
 npm start
+```
+
+## Testing
+
+```sh
+
+# Run app
+
+npm start
+
+# Run tests (in another terminal)
+
+npm run test
 ```
