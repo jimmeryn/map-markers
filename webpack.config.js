@@ -9,7 +9,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "/dist"),
-    filename: "index.js",
+    filename: "[name].bundle.js",
+    chunkFilename: "[name].bundle.js",
   },
   module: {
     rules: [
@@ -23,6 +24,11 @@ module.exports = {
         loader: "style-loader!css-loader",
       },
     ],
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
