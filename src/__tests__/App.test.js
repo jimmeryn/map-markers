@@ -1,9 +1,9 @@
-const puppeteer = require("puppeteer");
+import * as puppeteer from "puppeteer";
 
 let browser;
 let page;
 
-beforeAll(async () => {
+puppeteer.beforeAll(async () => {
   browser = await puppeteer.launch({
     headless: false,
   });
@@ -17,7 +17,7 @@ beforeAll(async () => {
   });
 });
 
-describe("Rendering Elements", () => {
+puppeteer.describe("Rendering Elements", () => {
   it("Rendering map", async () => {
     await page.goto("http://localhost:8080/");
     await page.waitForSelector(".map");
@@ -31,6 +31,6 @@ describe("Rendering Elements", () => {
   });
 });
 
-afterAll(() => {
+puppeteer.afterAll(() => {
   browser.close();
 });

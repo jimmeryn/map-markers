@@ -7,7 +7,7 @@ const Option = ({ options, optionName, index, label }) => {
   const [value, setValue] = React.useState(optionName);
   const dispatch = useDispatch();
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setValue(event.target.value);
     dispatch(setOptionIndex(event.target.value, index));
   };

@@ -14,7 +14,7 @@ const Map = ({ markers, categories }) => (
     <ZoomableGroup zoom={1}>
       <Geographies geography={GEO_URL}>
         {({ geographies }) =>
-          geographies.map(geo => (
+          geographies.map((geo) => (
             <Geography
               key={geo.rsmKey}
               geography={geo}

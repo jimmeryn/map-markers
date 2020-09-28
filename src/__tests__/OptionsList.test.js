@@ -23,14 +23,14 @@ describe("Rendering Elements", () => {
     await page.goto("http://localhost:8080/");
     await page.waitForSelector(".menu");
     expect(
-      await page.$eval(".MuiButton-contained > span", el => el.innerText)
+      await page.$eval(".MuiButton-contained > span", (el) => el.innerText)
     ).toBe("NEXT");
   });
 
   it("Back button defined but not active.", async () => {
     await page.goto("http://localhost:8080/");
     await page.waitForSelector(".menu");
-    expect(await page.$eval(".Mui-disabled > span", el => el.innerText)).toBe(
+    expect(await page.$eval(".Mui-disabled > span", (el) => el.innerText)).toBe(
       "BACK"
     );
   });
@@ -40,7 +40,7 @@ describe("Rendering Elements", () => {
     await page.waitForSelector(".menu");
     await page.click(".MuiButton-contained");
     expect(
-      await page.$eval(".MuiButtonBase-root > span", el => el.innerText)
+      await page.$eval(".MuiButtonBase-root > span", (el) => el.innerText)
     ).toBe("BACK");
     expect(await page.$(".MuiButton-disabled")).toBeFalsy();
   });
@@ -50,7 +50,7 @@ describe("Rendering Elements", () => {
     await page.waitForSelector(".menu");
     await page.click(".MuiButton-contained");
     expect(
-      await page.$eval(".MuiButton-contained > span", el => el.innerText)
+      await page.$eval(".MuiButton-contained > span", (el) => el.innerText)
     ).toBe("FINISH");
     await page.click(".MuiButton-contained");
     expect(await page.$(".menu")).toBeFalsy();

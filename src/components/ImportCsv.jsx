@@ -6,7 +6,7 @@ import CSVReader from "react-csv-reader";
 //
 // Read data line by line and for every line create optionObject with key - option.name and value - data from current line where index is taken from Options.
 const formatData = (data, options) =>
-  data.map(dataLine =>
+  data.map((dataLine) =>
     options.reduce(
       (optionObject, option) => ({
         ...optionObject,
@@ -16,15 +16,15 @@ const formatData = (data, options) =>
     )
   );
 
-const dataSizeCheck = data =>
+const dataSizeCheck = (data) =>
   data.length > 0 &&
   data.length <= 20 &&
-  data.every(dataArray => dataArray.length === 5);
+  data.every((dataArray) => dataArray.length === 5);
 
 const ImportCsv = ({ options, setData, reportError }) => (
   <div className="import-csv">
     <CSVReader
-      onFileLoaded={data => {
+      onFileLoaded={(data) => {
         if (dataSizeCheck(data)) {
           const formatedData = formatData(data, options);
           setData(formatedData);

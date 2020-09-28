@@ -26,7 +26,7 @@ const option = (state, action) => {
 const options = (state = defaultState, action) => {
   switch (action.type) {
     case SET_OPTION_INDEX:
-      return state.map(opt => option(opt, action));
+      return state.map((opt) => option(opt, action));
     default:
       return state;
   }

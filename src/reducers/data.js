@@ -17,7 +17,7 @@ const data = (state = [], action) => {
     case SET_DATA:
       return action.data;
     case SET_LOCATION:
-      return state.map(dataIt => dataItem(dataIt, action));
+      return state.map((dataIt) => dataItem(dataIt, action));
     default:
       return state;
   }

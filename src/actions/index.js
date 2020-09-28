@@ -10,7 +10,7 @@ export const setOptionIndex = (name, index) => {
   };
 };
 
-export const setData = data => {
+export const setData = (data) => {
   return {
     type: SET_DATA,
     data,
@@ -28,7 +28,7 @@ export const setLocation = (address, lat, lon) => {
 
 export const REPORT_ERROR = "REPORT_ERROR";
 
-export const reportError = error => {
+export const reportError = (error) => {
   return {
     type: REPORT_ERROR,
     error,

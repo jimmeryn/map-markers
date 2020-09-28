@@ -13,15 +13,15 @@ const StepperComponent = ({ steps, hideMenu }) => {
   const options = useSelector(({ options }) => options);
 
   const dispatch = useDispatch();
-  const setDataWrapper = data => dispatch(setData(data));
-  const reportFileError = message => dispatch(reportError(message));
+  const setDataWrapper = (data) => dispatch(setData(data));
+  const reportFileError = (message) => dispatch(reportError(message));
 
   const handleBack = () => {
-    setActiveStep(prevActiveStep => prevActiveStep - 1);
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const handleNext = () => {
-    setActiveStep(prevActiveStep => prevActiveStep + 1);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleFinish = () => {
@@ -37,13 +37,13 @@ const StepperComponent = ({ steps, hideMenu }) => {
    * all names displayed, but Stepper breaks
    * using redux might not be the best idea (especially this way...)
    */
-  const allOptionsSet = options =>
-    !([...new Set(options.map(o => o.index))].length === options.length);
+  const allOptionsSet = (options) =>
+    !([...new Set(options.map((o) => o.index))].length === options.length);
 
-  const getStepContent = index => {
+  const getStepContent = (index) => {
     switch (index) {
       case 0:
-        return <OptionsList optionNames={options.map(opt => opt.name)} />;
+        return <OptionsList optionNames={options.map((opt) => opt.name)} />;
       case 1:
         return (
           <ImportCsv

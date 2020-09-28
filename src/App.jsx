@@ -9,7 +9,7 @@ import { reportError, setLocation } from "./actions";
 import ErrorSnackbar from "./components/ErrorSnackbar";
 
 const App = () => {
-  const { data, errors } = useSelector(state => ({
+  const { data, errors } = useSelector((state) => ({
     data: state.data,
     errors: state.errors,
   }));
@@ -24,8 +24,8 @@ const App = () => {
   React.useEffect(() => {
     if (data.length > 0) {
       try {
-        data.forEach(dataItem =>
-          getDataFromAddresses(dataItem, setDataLocation).catch(_error => {
+        data.forEach((dataItem) =>
+          getDataFromAddresses(dataItem, setDataLocation).catch((_error) => {
             handleSetApiError();
           })
         );
@@ -40,12 +40,12 @@ const App = () => {
       <Menu />
       <ErrorSnackbar message={errors.error} />
       <Map
-        markers={data.map(dataItem => ({
+        markers={data.map((dataItem) => ({
           name: dataItem.address,
           coordinates: [dataItem.lat, dataItem.lon],
           category: dataItem.category,
         }))}
-        categories={[...new Set(data.map(dataItem => dataItem.category))]}
+        categories={[...new Set(data.map((dataItem) => dataItem.category))]}
       />
     </div>
   );
