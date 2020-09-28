@@ -3,11 +3,11 @@ export default async function getDataFromAddresses(
   setLocation
 ) {
   const response = await fetch(
-    `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${formatAddressQuery(
-      formatAddressQuery(city.split(" ")),
+    `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${encodeURI(
+      city,
       state,
       zip,
-      formatAddressQuery(address.split(" "))
+      address
     )}&outFields=Match_addr,Addr_type`
   );
 
@@ -19,5 +19,3 @@ export default async function getDataFromAddresses(
     data.candidates[0].location.y
   );
 }
-
-const formatAddressQuery = (...params) => params.join("%20");
