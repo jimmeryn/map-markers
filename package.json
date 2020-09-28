@@ -10,7 +10,9 @@
     "test": "jest",
     "watch": "jest --watch",
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "format": "prettier \"src/**/*.{js,jsx}\" --write",
+    "lint": "eslint --ext .js,.jsx src"
   },
   "author": "jimmeryn@gmail.com",
   "license": "ISC",
