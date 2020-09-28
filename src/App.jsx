@@ -25,7 +25,7 @@ const App = () => {
     if (data.length > 0) {
       try {
         data.forEach(dataItem =>
-          getDataFromAddresses(dataItem, setDataLocation).catch(error => {
+          getDataFromAddresses(dataItem, setDataLocation).catch(_error => {
             handleSetApiError();
           })
         );
