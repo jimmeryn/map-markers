@@ -59,7 +59,7 @@ describe("Rendering Elements", () => {
 
 // This function don't work as intended. Needs improvement.
 // It based "from" and "to" on input value but two inputs can have same value thus we are able to use only the first one
-async function SwapOpiton(from, to) {
+async function SwapOption(from, to) {
   await page.click(`input[value=${from}]`);
   await page.waitForSelector("ul");
   await page.waitForSelector(".MuiPopover-root");
@@ -71,7 +71,7 @@ describe("Options order swapping...", () => {
     await page.goto("http://localhost:8080/");
     await page.waitForSelector(".menu");
 
-    SwapOpiton(names[0], names[1]);
+    SwapOption(names[0], names[1]);
 
     expect(await page.$(".MuiButton-contained[disable]")).toBeDefined();
   }, 160000);
