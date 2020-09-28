@@ -29,6 +29,14 @@ const StepperComponent = ({ steps, hideMenu }) => {
     hideMenu();
   };
 
+  // BUG: City to <another_option> and back to City -
+  /**
+   * City - 0, <another_param> - 1
+   * City - 0, <another_param> - 0 <--- changing this, but nothing changes for City param
+   * City - 0, <another_param> - 0 <--- set City to 0, but it already had been 0 so nothing changed
+   * all names displayed, but Stepper breaks
+   * using redux might not be the best idea (especially this way...)
+   */
   const allOptionsSet = options =>
     !([...new Set(options.map(o => o.index))].length === options.length);
 
