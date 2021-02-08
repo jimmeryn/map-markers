@@ -1,7 +1,9 @@
-export default async function getDataFromAddresses(
-  { city, state, zip, address },
-  setLocation
-) {
+export default async function getDataFromAddresses({
+  city,
+  state,
+  zip,
+  address,
+}) {
   const response = await fetch(
     `https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?f=json&singleLine=${encodeURI(
       city,
@@ -13,9 +15,9 @@ export default async function getDataFromAddresses(
 
   const data = await response.json();
 
-  setLocation(
+  return {
     address,
-    data.candidates[0].location.x,
-    data.candidates[0].location.y
-  );
+    x: data.candidates[0].location.x,
+    y: data.candidates[0].location.y,
+  };
 }

@@ -25,9 +25,11 @@ const App = () => {
     if (data.length > 0) {
       try {
         data.forEach((dataItem) =>
-          getDataFromAddresses(dataItem, setDataLocation).catch((_error) => {
-            handleSetApiError();
-          })
+          getDataFromAddresses(dataItem)
+            .then(({ address, x, y }) => setDataLocation(address, x, y))
+            .catch(() => {
+              handleSetApiError();
+            })
         );
       } catch (error) {
         handleSetApiError();
